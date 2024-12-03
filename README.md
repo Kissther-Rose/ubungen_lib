@@ -1,25 +1,23 @@
 # Library Management System API
 
-This is a RESTful API for managing a library system, built with PHP, the Slim Framework, and JWT (JSON Web Token) for secure authentication. The API allows users to manage authors, books, and the relationships between them, providing a streamlined solution for library operations.
+This RESTful API allows efficient management of a library system. Built using PHP, the Slim Framework, and JWT (JSON Web Token), it provides secure endpoints for managing users, authors, books, and their relationships. It streamlines library operations with modern technology.
 
 ## Features
 
-- **User Management**: Register and authenticate users, ensuring secure access through JWT tokens.
-- **Protected Endpoints**: Utilize middleware for token verification, regeneration, and blacklist management for expired tokens.
-- **CRUD Functionality**:
-  - Add and list authors.
-  - Add and list books.
-  - Establish relationships between books and authors.
+- **User Management**: Register and authenticate users securely with JWT tokens.
+- **Protected Endpoints**: Middleware ensures token verification and blacklist management for expired tokens.
+- **CRUD Operations**:
+  - Add and retrieve authors.
+  - Add and retrieve books.
+  - Manage relationships between books and authors.
 
 ## Technology Stack
 
-- **PHP**: Backend logic and scripting.
-- **Slim Framework**: Lightweight framework for RESTful API development.
-- **JWT (Firebase/JWT)**: Secure user authentication and token handling.
-- **MySQL**: Database for managing users, authors, and books.
-- **SQLyog**: Database management tool.
-
----
+- **PHP**: Backend development.
+- **Slim Framework**: Lightweight framework for building RESTful APIs.
+- **JWT (Firebase/JWT)**: Secure authentication handling.
+- **MySQL**: Database for users, authors, and books.
+- **SQLyog**: MySQL management tool.
 
 ## API Endpoints
 
@@ -39,16 +37,14 @@ This is a RESTful API for managing a library system, built with PHP, the Slim Fr
 Response:
 
 Success:
-json
-Copy code
+
 {
   "status": "success",
   "token": null,
   "data": null
 }
 Failure:
-json
-Copy code
+
 {
   "status": "fail",
   "data": {
@@ -61,8 +57,6 @@ Endpoint: /user/authenticate
 
 Request Body:
 
-json
-Copy code
 {
   "username": "yourUsername",
   "password": "yourPassword"
@@ -70,16 +64,14 @@ Copy code
 Response:
 
 Success:
-json
-Copy code
+
 {
   "status": "success",
   "token": "your_jwt_token",
   "data": null
 }
 Failure:
-json
-Copy code
+
 {
   "status": "fail",
   "token": null,
@@ -94,15 +86,11 @@ Endpoint: /authors/add
 
 Request Body:
 
-json
-Copy code
 {
   "name": "Author Name"
 }
 Response:
 
-json
-Copy code
 {
   "status": "success",
   "token": "new_jwt_token",
@@ -114,8 +102,6 @@ Endpoint: /authors
 
 Response:
 
-json
-Copy code
 {
   "status": "success",
   "token": "new_jwt_token",
@@ -137,20 +123,23 @@ Endpoint: /books/add
 
 Request Body:
 
-json
-Copy code
 {
   "title": "Book Title",
   "author_id": 1
 }
+Response:
+
+{
+  "status": "success",
+  "token": "new_jwt_token",
+  "data": null
+}
 Get List of Books
-Method: POST
+Method: GET
 Endpoint: /books
 
 Response:
 
-json
-Copy code
 {
   "status": "success",
   "token": "new_jwt_token",
@@ -174,16 +163,12 @@ Endpoint: /books/authors/add
 
 Request Body:
 
-json
-Copy code
 {
   "book_id": 1,
   "author_id": 1
 }
 Response:
 
-json
-Copy code
 {
   "status": "success",
   "token": "new_jwt_token",
@@ -195,8 +180,6 @@ Endpoint: /books/authors
 
 Response:
 
-json
-Copy code
 {
   "status": "success",
   "token": "new_jwt_token",
@@ -212,15 +195,15 @@ Copy code
   ]
 }
 5. Authorization
-Include the JWT in the request headers as follows:
+For protected endpoints, include the JWT token in the request headers:
 
-json
+Header:
+
+css
 Copy code
-{
-  "Authorization": "Bearer {your_jwt_token}"
-}
+Authorization: Bearer {your_jwt_token}
 How It Works
-Endpoints: Clearly outlined with methods and paths.
-Request/Response: Each API call includes detailed JSON examples for clarity.
-Authentication: Secure access with JWT for protected routes.
-This documentation ensures developers can quickly integrate and utilize the Library Management System API effectively.
+Endpoints: Each endpoint specifies the HTTP method and URL.
+Request/Response: Detailed examples of payloads and expected responses.
+Authentication: JWT tokens ensure secure access to protected routes.
+This documentation ensures clarity for developers integrating with the Library Management System API.
