@@ -33,18 +33,22 @@ This RESTful API allows efficient management of a library system. Built using PH
 {
   "username": "yourUsername",
   "password": "yourPassword"
+  
 }
+```
+
 Response:
 
 Success:
-
+```json
 {
   "status": "success",
   "token": null,
   "data": null
 }
-Failure:
 
+Failure:
+```json
 {
   "status": "fail",
   "data": {
@@ -56,7 +60,7 @@ Method: POST
 Endpoint: /user/authenticate
 
 Request Body:
-
+```json
 {
   "username": "yourUsername",
   "password": "yourPassword"
@@ -64,14 +68,14 @@ Request Body:
 Response:
 
 Success:
-
+```json
 {
   "status": "success",
   "token": "your_jwt_token",
   "data": null
 }
 Failure:
-
+```json
 {
   "status": "fail",
   "token": null,
@@ -85,12 +89,12 @@ Method: POST
 Endpoint: /authors/add
 
 Request Body:
-
+```json
 {
   "name": "Author Name"
 }
 Response:
-
+```json
 {
   "status": "success",
   "token": "new_jwt_token",
@@ -101,7 +105,7 @@ Method: GET
 Endpoint: /authors
 
 Response:
-
+```json
 {
   "status": "success",
   "token": "new_jwt_token",
@@ -122,13 +126,13 @@ Method: POST
 Endpoint: /books/add
 
 Request Body:
-
+```json
 {
   "title": "Book Title",
   "author_id": 1
 }
 Response:
-
+```json
 {
   "status": "success",
   "token": "new_jwt_token",
@@ -139,7 +143,7 @@ Method: GET
 Endpoint: /books
 
 Response:
-
+```json
 {
   "status": "success",
   "token": "new_jwt_token",
@@ -162,13 +166,13 @@ Method: POST
 Endpoint: /books/authors/add
 
 Request Body:
-
+```json
 {
   "book_id": 1,
   "author_id": 1
 }
 Response:
-
+```json
 {
   "status": "success",
   "token": "new_jwt_token",
@@ -179,7 +183,7 @@ Method: GET
 Endpoint: /books/authors
 
 Response:
-
+```json
 {
   "status": "success",
   "token": "new_jwt_token",
@@ -194,14 +198,12 @@ Response:
     }
   ]
 }
+```
 5. Authorization
 For protected endpoints, include the JWT token in the request headers:
 
 Header:
 
-css
-Copy code
-Authorization: Bearer {your_jwt_token}
 How It Works
 Endpoints: Each endpoint specifies the HTTP method and URL.
 Request/Response: Detailed examples of payloads and expected responses.
